@@ -8,18 +8,19 @@ using UnganaConnect.Data;
 using UnganaConnect.Frontend.Services;
 
 
-Env.Load();
+if (File.Exists(".env")) Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 
 // Clear default logging providers
 builder.Logging.ClearProviders();
 
 // Configure Serilog
-Log.Logger = new LoggerConfiguration()
+var logConfig = new LoggerConfiguration()
     .MinimumLevel.Information()
-    .WriteTo.Console()
-    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
+    .WriteTo.Console();
+if (builder.Environment.IsDevelopment())
+    logConfig.WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day);
+Log.Logger = logConfig.CreateLogger();
 
 // Route ILogger<> to Serilog
 builder.Host.UseSerilog();
@@ -63,10 +64,15 @@ builder.Services.AddSession(options =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+try
 {
+    using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<UnganaConnectDbContext>();
     db.Database.Migrate();
+}
+catch (Exception ex)
+{
+    Log.Warning(ex, "Database migration failed — check DefaultConnection");
 }
 
 // Configure the HTTP request pipeline.
@@ -77,7 +83,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 
-app.UseHttpsRedirection();
+if (app.Environment.IsDevelopment())
+    app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseSerilogRequestLogging();

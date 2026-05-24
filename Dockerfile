@@ -17,6 +17,9 @@ COPY --from=build /out .
 
 # Expose the port Render expects
 ENV ASPNETCORE_URLS=http://+:10000
+ENV DOTNET_ENVIRONMENT=Production
+ENV DOTNET_GCConserveMemory=9
+ENV DOTNET_GCHeapHardLimit=0x1C000000
 EXPOSE 10000
 
 # Run the app
