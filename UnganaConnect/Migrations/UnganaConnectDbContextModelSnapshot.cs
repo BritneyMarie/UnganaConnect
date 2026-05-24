@@ -94,49 +94,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Events");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Agenda = new List<string>(),
-                            Date = new DateTime(2025, 12, 15, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "A hands-on workshop exploring how African CSOs can leverage ICT tools for greater community impact. Topics include digital fundraising, online collaboration, and social media strategy.",
-                            Duration = "Full Day",
-                            Format = "Hybrid",
-                            Instructor = "Ungana-Afrika Team",
-                            Level = "All Levels",
-                            Location = "Johannesburg, South Africa",
-                            Materials = new List<string>(),
-                            MaxParticipants = 50,
-                            Participants = 12,
-                            Price = "Free",
-                            Tags = new List<string>(),
-                            Time = new TimeSpan(0, 9, 0, 0, 0),
-                            Title = "ICT for Development Workshop 2025",
-                            Type = "Workshop"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Agenda = new List<string>(),
-                            Date = new DateTime(2025, 11, 20, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Understanding data protection regulations and best practices for African civil society organisations handling sensitive community data.",
-                            Duration = "2 Hours",
-                            Format = "Online",
-                            Instructor = "Dr. Naledi Khumalo",
-                            Level = "Intermediate",
-                            Location = "Online (Zoom)",
-                            Materials = new List<string>(),
-                            MaxParticipants = 100,
-                            Participants = 8,
-                            Price = "Free",
-                            Tags = new List<string>(),
-                            Time = new TimeSpan(0, 14, 0, 0, 0),
-                            Title = "Data Privacy in African Civil Society",
-                            Type = "Webinar"
-                        });
+                    b.ToTable("Events", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Frontend.Models.EventRegistration", b =>
@@ -165,7 +123,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.ToTable("EventRegistrations");
+                    b.ToTable("EventRegistrations", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Frontend.Models.ForumCategory", b =>
@@ -192,37 +150,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ForumCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Color = "#3B82F6",
-                            Description = "Open discussions about ICT in civil society",
-                            Name = "General Discussion"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Color = "#10B981",
-                            Description = "Questions and help with courses and modules",
-                            Name = "Training Support"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Color = "#F59E0B",
-                            Description = "Share and learn organisational best practices",
-                            Name = "Best Practices"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Color = "#8B5CF6",
-                            Description = "Discuss upcoming events and networking opportunities",
-                            Name = "Events & Networking"
-                        });
+                    b.ToTable("ForumCategories", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Frontend.Models.ForumReply", b =>
@@ -251,7 +179,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("TopicId");
 
-                    b.ToTable("ForumReplies");
+                    b.ToTable("ForumReplies", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Frontend.Models.ForumTopic", b =>
@@ -313,43 +241,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("ForumTopics");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Author = "Admin User",
-                            AuthorOrg = "Ungana-Afrika",
-                            AuthorRole = "Admin",
-                            CategoryId = 1,
-                            Content = "Welcome to the UnganaConnect community forum. This is a space for African CSOs to share knowledge, ask questions, and collaborate. Feel free to introduce yourself and your organisation!",
-                            CreatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Excerpt = "Welcome to the UnganaConnect community forum.",
-                            IsAnswered = false,
-                            IsPinned = true,
-                            Replies = 0,
-                            Tags = "welcome,community",
-                            Title = "Welcome to UnganaConnect Forum!",
-                            Views = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Author = "Demo Member",
-                            AuthorOrg = "African Digital Initiative",
-                            AuthorRole = "Member",
-                            CategoryId = 2,
-                            Content = "I just finished the Digital Literacy course and wanted to share some tips that helped me. First, take the quizzes after each module rather than waiting until the end. Second, the resource library has great supplementary materials.",
-                            CreatedAt = new DateTime(2025, 10, 31, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Excerpt = "Tips and advice for completing the Digital Literacy course.",
-                            IsAnswered = false,
-                            IsPinned = false,
-                            Replies = 0,
-                            Tags = "digital-literacy,tips,courses",
-                            Title = "Tips for completing the Digital Literacy course",
-                            Views = 0
-                        });
+                    b.ToTable("ForumTopics", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Frontend.Models.Resource", b =>
@@ -396,7 +288,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Resources");
+                    b.ToTable("Resources", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Models.Blog.BlogPost", b =>
@@ -462,43 +354,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("BlogPosts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AllowComments = true,
-                            AuthorId = new Guid("a1b2c3d4-e5f6-7890-abcd-ef1234567890"),
-                            Category = "Technology",
-                            Content = "Digital transformation is no longer optional for civil society organisations in Africa. As communities increasingly rely on digital services, CSOs must adapt to remain effective advocates and service providers.\n\nUnganaConnect was built to bridge this gap, providing accessible training, resource sharing, and community engagement tools specifically designed for African civil society.\n\nKey areas where digital tools make the biggest impact include donor reporting, community outreach, internal collaboration, and impact measurement.",
-                            CreatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Excerpt = "How digital tools are reshaping the way African civil society organisations operate and deliver impact.",
-                            IsFeatured = true,
-                            PublishedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Status = "Published",
-                            Tags = "digital-transformation,CSOs,Africa",
-                            Title = "Empowering African CSOs Through Digital Transformation",
-                            UpdatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Views = 45
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AllowComments = true,
-                            AuthorId = new Guid("a1b2c3d4-e5f6-7890-abcd-ef1234567890"),
-                            Category = "Resources",
-                            Content = "Running a non-profit with limited resources does not mean you have to sacrifice productivity. Here are five free tools that can transform how your organisation operates:\n\n1. Google Workspace for Nonprofits - email, docs, and cloud storage\n2. Canva - professional design without a designer\n3. Trello - project management and task tracking\n4. Mailchimp - email marketing for up to 500 contacts\n5. UnganaConnect - training and capacity building for African CSOs",
-                            CreatedAt = new DateTime(2025, 11, 2, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Excerpt = "Essential free digital tools that can help non-profits work smarter with limited budgets.",
-                            IsFeatured = false,
-                            PublishedAt = new DateTime(2025, 11, 2, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Status = "Published",
-                            Tags = "tools,NGO,productivity,free",
-                            Title = "5 Free Tools Every NGO Should Be Using",
-                            UpdatedAt = new DateTime(2025, 11, 2, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Views = 28
-                        });
+                    b.ToTable("BlogPosts", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Models.Course.Course", b =>
@@ -568,77 +424,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Courses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Category = "Digital Skills",
-                            CreatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "A foundational course covering essential digital skills for civil society organisations, including internet safety, email communication, and basic productivity tools.",
-                            Duration = "4 weeks",
-                            Enrolled = 24,
-                            Level = "Beginner",
-                            Progress = 0,
-                            Rating = 4.5,
-                            Status = "available",
-                            ThumbnailContentType = "",
-                            ThumbnailFileName = "",
-                            ThumbnailUrl = "",
-                            Title = "Introduction to Digital Literacy"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Category = "Data & Analytics",
-                            CreatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Learn how to collect, store, and analyse data effectively. Covers spreadsheets, databases, and reporting tools tailored for non-profit organisations.",
-                            Duration = "6 weeks",
-                            Enrolled = 18,
-                            Level = "Intermediate",
-                            Progress = 0,
-                            Rating = 4.2000000000000002,
-                            Status = "available",
-                            ThumbnailContentType = "",
-                            ThumbnailFileName = "",
-                            ThumbnailUrl = "",
-                            Title = "Data Management for NGOs"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Category = "Capacity Building",
-                            CreatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Master the art of writing compelling grant proposals. Includes templates, case studies, and peer review exercises for African CSOs.",
-                            Duration = "3 weeks",
-                            Enrolled = 32,
-                            Level = "Intermediate",
-                            Progress = 0,
-                            Rating = 4.7999999999999998,
-                            Status = "available",
-                            ThumbnailContentType = "",
-                            ThumbnailFileName = "",
-                            ThumbnailUrl = "",
-                            Title = "Grant Writing and Proposal Development"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Category = "Security",
-                            CreatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Protect your organisation from digital threats. Covers password management, phishing awareness, secure communication, and data privacy compliance.",
-                            Duration = "2 weeks",
-                            Enrolled = 15,
-                            Level = "Beginner",
-                            Progress = 0,
-                            Rating = 4.5999999999999996,
-                            Status = "available",
-                            ThumbnailContentType = "",
-                            ThumbnailFileName = "",
-                            ThumbnailUrl = "",
-                            Title = "Cybersecurity Essentials for CSOs"
-                        });
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Models.Course.CourseEnrollment", b =>
@@ -670,7 +456,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Enrollments");
+                    b.ToTable("Enrollments", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Models.Course.Module", b =>
@@ -724,7 +510,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Modules");
+                    b.ToTable("Modules", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Models.Course.Quiz", b =>
@@ -752,7 +538,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("ModuleId");
 
-                    b.ToTable("Quizzes");
+                    b.ToTable("Quizzes", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Models.Course.QuizAttempt", b =>
@@ -779,7 +565,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("QuizId");
 
-                    b.ToTable("QuizAttempts");
+                    b.ToTable("QuizAttempts", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Models.Course.QuizOption", b =>
@@ -805,7 +591,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("QuizOptions");
+                    b.ToTable("QuizOptions", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Models.Course.QuizQuestion", b =>
@@ -833,7 +619,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasIndex("QuizId");
 
-                    b.ToTable("QuizQuestions");
+                    b.ToTable("QuizQuestions", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Models.User.User", b =>
@@ -888,37 +674,7 @@ namespace UnganaConnect.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("a1b2c3d4-e5f6-7890-abcd-ef1234567890"),
-                            Bio = "Platform administrator for UnganaConnect.",
-                            CreatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Email = "admin@unganaconnect.org",
-                            FirstName = "Admin",
-                            LastName = "User",
-                            Location = "Johannesburg, South Africa",
-                            Organization = "Ungana-Afrika",
-                            PasswordHash = "6G94qKPK8LYNjnTllCqm2G3BUM08AzOK7yW30tfjrMc=",
-                            Role = "Admin",
-                            UpdatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("b2c3d4e5-f6a7-8901-bcde-f12345678901"),
-                            Bio = "A sample CSO member exploring training opportunities.",
-                            CreatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Email = "member@unganaconnect.org",
-                            FirstName = "Demo",
-                            LastName = "Member",
-                            Location = "Cape Town, South Africa",
-                            Organization = "African Digital Initiative",
-                            PasswordHash = "q+LT7VQZ4aIpPANKazdaYi/1pg5aww8pxGEiCJj/3Zc=",
-                            Role = "Member",
-                            UpdatedAt = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Utc)
-                        });
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("UnganaConnect.Frontend.Models.EventRegistration", b =>
