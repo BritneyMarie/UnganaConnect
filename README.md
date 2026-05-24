@@ -2,7 +2,7 @@
 
 A digital capacity-building platform for African civil society organisations (CSOs), built for [Ungana-Afrika](https://ungana-afrika.org). UnganaConnect centralises training, resource sharing, community engagement, and event management into a single web application — replacing fragmented manual processes with an accessible, scalable digital hub.
 
-**Live Demo:** *Deploying to Render — link coming soon*
+**Live Demo:** [unganaconnect-82tf.onrender.com](https://unganaconnect-82tf.onrender.com)
 
 ---
 
