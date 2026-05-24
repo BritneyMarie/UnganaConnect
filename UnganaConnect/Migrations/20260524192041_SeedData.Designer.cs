@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UnganaConnect.Data;
@@ -12,9 +13,11 @@ using UnganaConnect.Data;
 namespace UnganaConnect.Migrations
 {
     [DbContext(typeof(UnganaConnectDbContext))]
-    partial class UnganaConnectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260524192041_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
