@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: unganaconnect
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: DefaultConnection
+        sync: false
+      - key: AzureBlobStorage
+        sync: false

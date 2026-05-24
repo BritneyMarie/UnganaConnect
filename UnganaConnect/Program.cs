@@ -27,9 +27,11 @@ builder.Host.UseSerilog();
 
 //configuration blob storage
 var conn = Environment.GetEnvironmentVariable("AzureBlobStorage");
-builder.Services.AddSingleton(x =>
-    new BlobServiceClient(conn));
-builder.Services.AddScoped<UnganaConnect.Frontend.Services.AzureBlobService>();
+if (!string.IsNullOrEmpty(conn))
+{
+    builder.Services.AddSingleton(x => new BlobServiceClient(conn));
+    builder.Services.AddScoped<UnganaConnect.Frontend.Services.AzureBlobService>();
+}
 
 
 //configuration of ConnectionString
@@ -60,6 +62,12 @@ builder.Services.AddSession(options =>
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<UnganaConnectDbContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
